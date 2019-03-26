@@ -1,0 +1,11 @@
+<div *ngIf="show" class="modal-backdrop"></div>
+<div *ngIf="show" class="modal-window">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h4>{{ title }}</h4><span (click)="hide()">x</span></div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

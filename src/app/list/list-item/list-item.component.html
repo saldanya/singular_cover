@@ -1,0 +1,13 @@
+<div class="container" [ngClass]="{ 'selected' : selected }" (click)="toggleSelected()">
+  <div class="img"><img [src]="'assets/images/' + item['brand-image']"></div>
+  <div class="content">
+    <div class="column">
+      <div>Product: {{ item.name }}</div>
+      <div>Company: {{ item.brand }}</div>
+    </div>
+    <div class="column right">
+      <div>Policy: {{ item.kind }} <img height="16" [src]="getImageFromKind(item.kind)"> </div>
+      <div class="price" *ngIf="showPrice">{{ item.price }}{{ currency }}</div>
+    </div>
+  </div>
+</div>

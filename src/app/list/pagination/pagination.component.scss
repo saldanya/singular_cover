@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  text-align: center;
+
+  .page {
+    background: #fff;
+    outline: none;
+    border: none;
+    height: 28px;
+    width: 28px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &.active {
+      background: #00B4CC;
+      color: #fff;
+    }
+  }
+}

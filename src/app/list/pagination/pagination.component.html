@@ -1,0 +1,10 @@
+<div class="container">
+  <button class="page"
+  (click)="paginationService.goFirst()"> « </button>
+  <button class="page"
+          *ngFor="let page of pages; let i=index;"
+          [ngClass]="{'active': i === paginationService.currentPage }"
+          (click)="paginationService.goTo(i)">{{ i + 1 }}</button>
+  <button class="page"
+  (click)="paginationService.goLast()"> » </button>
+</div>

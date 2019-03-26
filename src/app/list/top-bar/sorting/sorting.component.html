@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="title"> sorting: </div>
+  <div class="styled-select">
+    <select name="sort" (change)="sortFieldChanged($event)">
+      <option disabled>Sort by...</option>
+      <option *ngFor="let item of items" [value]="item.value">
+        {{ item.label }}
+      </option>
+    </select>
+  </div>
+  <div class="styled-select" *ngIf="sortingField !== null">
+    <select name="sort-direction" (change)="sortDirectionChanged($event)">
+      <option disabled>Sort direction...</option>
+      <option value="ASC">Ascendant</option>
+      <option value="DESC">Descendant</option>
+    </select>
+  </div>
+</div>

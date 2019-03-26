@@ -1,0 +1,5 @@
+<app-nav-bar [options]="navBarOptions" (action)="actionHandler($event)"></app-nav-bar>
+<app-list [data]=data [config]="config" (action)="handleAction($event)"></app-list>
+<app-modal [show]="modalShow" (closeModal)="hide()">
+  <app-list *ngIf="modalShow" [data]=starred [config]="starredConfig" (action)="handleAction($event)"></app-list>
+</app-modal>

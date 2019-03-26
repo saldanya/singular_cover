@@ -1,0 +1,4 @@
+<div class="container" *ngIf="getSelectedLength() > 0">
+  <h4>{{ getSelectedLength() }} items selected</h4>
+  <button (click)="actionHandler()">{{ getAction().label }}</button>
+</div>

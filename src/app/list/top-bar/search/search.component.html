@@ -1,0 +1,11 @@
+<div *ngIf="isDisplayed()" class="input-wrapper">
+  <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+    <input [(ngModel)]="model.searchString"
+           #searchString="ngModel"
+           name="searchString"
+           class="search"
+           autocomplete="off"
+           [placeholder]="getSearchFields()">
+    <button type="submit" class="search-button" >Search</button>
+  </form>
+</div>

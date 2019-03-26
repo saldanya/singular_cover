@@ -1,0 +1,6 @@
+<nav class="topnav">
+  <div class="option" (click)="optionClicked(option.action)" *ngFor="let option of options">
+    <span *ngIf="option.starIcon">&#9733;</span>
+    {{ option.label }}
+  </div>
+</nav>
