@@ -100,9 +100,17 @@ export class ListService {
    */
   changeSelection(sel: SelectableInterface) {
     if (sel.selected) {
-      this.selectedItems[sel.id] = sel.index;
+      this.selectedItems[sel.id] = (this.paginationService.currentPage * this.paginationService.recordsPerPage) + sel.index;
     } else {
       delete this.selectedItems[sel.id];
     }
+  }
+
+  /**
+   * Check if item on paged index is selected
+   * @param index
+   */
+  isSelected(id: number): boolean {
+    return (this.selectedItems.hasOwnProperty(id));
   }
 }

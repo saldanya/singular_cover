@@ -13,16 +13,22 @@ export class SearchComponent {
 
   constructor(private searchService: SearchService) {}
 
+  /**
+   * Returns true when container should be displayed
+   */
   isDisplayed(): boolean {
     return this.searchService.props.length > 0;
   }
+
+  /**
+   * Return a string with the search fields comma separated
+   */
   getSearchFields(): string {
     return 'search by ' + this.searchService.props.join(', ') + '...';
   }
 
   /**
    * Form submission handler for search
-   * @param {string} text
    */
   onSubmit() {
     this.searchService.changeSearchString(this.model.searchString);

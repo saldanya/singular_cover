@@ -20,22 +20,37 @@ export class SortingService {
     this.propsChanged.next(this.props);
   }
 
+  /**
+   * Sets the new sort field
+   * @param newField
+   */
   setSortingField(newField) {
     this.sortField = newField;
     this.updateSort();
   }
 
-  setSortingDirection(newDirection) {
+  /**
+   * Sets the new direction
+   * @param newDirection
+   */
+  setSortingDirection(newDirection: string) {
     this.sortDirection = newDirection;
     this.updateSort();
   }
 
+  /**
+   * Updates sort be sending a sortchange event
+   */
   updateSort() {
     if (this.sortField !== null && this.sortField !== undefined && this.sortDirection !== null && this.sortDirection !== undefined) {
       this.sortChanged.next({field: this.sortField, direction: this.sortDirection});
     }
   }
 
+  /**
+   * method for sorting arrays
+   * @param a
+   */
   sort<T>(a: Array<T>): Array<T> {
     console.log('sorting...');
     if (this.sortField !== null && this.sortField !== undefined && this.sortDirection !== null && this.sortDirection !== undefined) {
@@ -45,6 +60,11 @@ export class SortingService {
     }
   }
 
+  /**
+   * comparison method used on sorting
+   * @param a
+   * @param b
+   */
   private compare(a, b): number {
     if (this.tryParseInt(a[this.sortField]) < this.tryParseInt(b[this.sortField])) {
       return this.sortDirection === 'ASC' ? -1 : 1;
@@ -55,6 +75,10 @@ export class SortingService {
     }
   }
 
+  /**
+   * try to parse an int value. if it's not possible, returns the input string
+   * @param str
+   */
   private tryParseInt(str): number | string {
     if (!isNaN(str)) {
       return parseInt(str, 10);

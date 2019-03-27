@@ -95,7 +95,7 @@ export class PaginationService {
    * Returns true if it's last page
    * @returns {boolean}
    */
-  isLastPage() {
+  isLastPage(): boolean {
     return this.currentPage === Math.ceil(this.numberOfRecords / this.recordsPerPage) - 1;
   }
 }

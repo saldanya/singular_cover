@@ -21,7 +21,7 @@ export class SearchService {
    * @param {Array<any>} array
    * @returns {Array<any>}
    */
-  search(array: Array<any>) {
+  search(array: Array<any>): Array<any> {
     if (this.searchString === '' || this.props.length === 0) {
       return array;
     }

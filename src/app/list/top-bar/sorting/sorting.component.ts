@@ -20,11 +20,19 @@ export class SortingComponent implements OnInit {
     });
   }
 
+  /**
+   * Handler for field selection changes
+   * @param event
+   */
   sortFieldChanged(event) {
     this.sortingField = event.target.value;
     this.sortService.setSortingField(event.target.value);
   }
 
+  /**
+   * Handler for direction selection changes
+   * @param event
+   */
   sortDirectionChanged(event) {
     this.sortingDirection = event.target.value;
     this.sortService.setSortingDirection(event.target.value);

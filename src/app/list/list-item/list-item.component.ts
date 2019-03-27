@@ -11,10 +11,9 @@ export class ListItemComponent {
   @Input() item;
   @Input() currency = '€';
   @Input() showPrice = true;
+  @Input() selected: number;
 
   @Output() selectionChange = new Subject<SelectableInterface>();
-
-  selected = false;
 
   imgKinds = {
     'Vida': 'life',
@@ -26,11 +25,17 @@ export class ListItemComponent {
     'Salud': 'health'
   };
 
+  /**
+   * Toggle Selected items
+   */
   toggleSelected() {
-    this.selected = !this.selected;
-    this.selectionChange.next({ selected: this.selected, id: this.item.id });
+    this.selectionChange.next({ selected: !this.selected, id: this.item.id });
   }
 
+  /**
+   * get kind icon from a given kind
+   * @param kind
+   */
   getImageFromKind(kind: string): string {
     return `assets/images/kind_${this.imgKinds[kind]}.png`;
   }

@@ -1,7 +1,8 @@
 <top-bar></top-bar>
 <app-list-item
-  *ngFor="let o of filteredData; let i = index;"
+  *ngFor="let o of pagedData; let i = index;"
   [item]=o
+  [selected]="checkSelected(o.id)"
   [showPrice]="listService.showPrice"
   (selectionChange)="toggleSelected($event, i)"></app-list-item>
 <app-pagination></app-pagination>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 
 import { DataService } from './data.service';
 import {ConfigurationInterface} from './list/interfaces/configuration.interface';
 import {NavBarItemInterface} from './nav-bar/interfaces/nav-bar-item.interface';
+import {NotificationsService} from './notifications/notifications/notifications.service';
 
 @Component({
   selector: 'app-root',
@@ -36,28 +37,39 @@ export class AppComponent implements OnInit {
 
   navBarOptions: Array<NavBarItemInterface> = [{label: 'Starred', action: 'favs', starIcon: true}];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private notificationsService: NotificationsService, private vcr: ViewContainerRef) {}
 
   ngOnInit() {
     this.dataService.getData().subscribe(
       data => this.data = data
     );
+    this.notificationsService.init(this.vcr);
   }
 
+  /**
+   * Handles navbar action events
+   * @param event
+   */
   actionHandler(event) {
-    console.log(event);
-    if (event === 'favs') {
-      this.modalShow = true;
+    switch (event) {
+      case 'favs':
+        this.modalShow = true;
+      break;
     }
-    console.log('show', this.modalShow);
   }
 
+  /**
+   * Hides modal
+   */
   hide() {
     this.modalShow = false;
   }
 
+  /**
+   * Handle main list actions
+   * @param event
+   */
   handleAction(event) {
-    console.log(event);
     switch (event.action) {
       case 'add':
         this.addtoFavs(event.selectedItems);
@@ -68,6 +80,10 @@ export class AppComponent implements OnInit {
     }
   }
 
+  /**
+   * Add items to starred list
+   * @param items
+   */
   addtoFavs(items: Array<Object>) {
     for (let i = 0; i < items.length; ++i) {
       if (!this.starredIds.hasOwnProperty(items[i]['id'])) {
@@ -75,16 +91,20 @@ export class AppComponent implements OnInit {
         this.starred.push(items[i]);
       }
     }
+    this.notificationsService.createMessage('Items added to favourites');
   }
 
+  /**
+   * Remove items from starred list
+   * @param items
+   */
   removeFromFavs(items: Array<Object>) {
-    console.log('items', items);
     for (let i = 0; i < items.length; ++i) {
       delete this.starredIds[items[i]['id']];
       const index = this.starred.findIndex(x => x.id === items[i]['id']);
-      this.starred = [...this.starred.splice(index + 1, 1)];
+      this.starred.splice(index, 1);
     }
-    console.log('starred', this.starred);
-    console.log('starredids', this.starredIds);
+    this.starred = [...this.starred];
+    this.notificationsService.createMessage('Items removed from favourites');
   }
 }

@@ -7,6 +7,7 @@ import { ListModule } from './list/list.module';
 import { DataService } from './data.service';
 import {NavBarModule} from './nav-bar/nav-bar.module';
 import {ModalModule} from './modal/modal.module';
+import {NotificationsModule} from './notifications/notifications.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ModalModule} from './modal/modal.module';
     HttpClientModule,
     ListModule,
     NavBarModule,
-    ModalModule
+    ModalModule,
+    NotificationsModule
   ],
   providers: [ DataService ],
   bootstrap: [ AppComponent ]
