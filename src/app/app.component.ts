@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   data = null;
   config: ConfigurationInterface = {
-    searchProps: [],
+    searchProps: ['name', 'brand', 'kind', 'price'],
     filterProps: [{value: 'brand', label: 'company'}, {value: 'kind', label: 'kind'}, {value: 'price', label: 'price'}],
     itemsPerPage: 5,
     pagination: true,
@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
   starredIds = {};
 
   starredConfig: ConfigurationInterface = {
-    searchProps: ['name', 'company', 'kind'],
-    filterProps: [{value: 'name', label: 'name'}, {value: 'kind', label: 'kind'}],
+    searchProps: ['name', 'company', 'kind', 'price'],
+    filterProps: [],
     itemsPerPage: 5,
     pagination: true,
     selectedItemsAction: { label: 'Remove from favourites', action: 'remove' },

@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="items.length > 0" class="container">
   <div class="title"> sorting: </div>
   <div class="styled-select">
     <select name="sort" (change)="sortFieldChanged($event)">
