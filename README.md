@@ -1,6 +1,6 @@
 # Singular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5. It is a test of angular development made by David Saldaña. The project can be tested on https://saldanya.github.io/singular_cover/
 
 ## Development server
 
