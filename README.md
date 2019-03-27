@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Further work
+
+It would has been great, but I dind't have time to do it, to use ng-template/ng-container to dinamically change the list-item layout. That's for sure a better approach than displaying the price depending on the configuration. Also is good to have unit tests for everything, but I focused on a better app architecture and component reuse than on testing, but I work with e2e and unit testing on my daily work.
+
+Themeing could have been more standard alse, re-using sass vars, for example. Or with a more complex structure.
+
+Modal could have be done in another way to avoid to have it on the DOM, but in terms on time, it couldn't be done. It could have been done like the notification component that uses the factory pattern to creat components on the vrc.
+
+There ara a lot of things that can be improved or revised. But for a test I think is pretty ok.
