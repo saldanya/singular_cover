@@ -1,5 +1,6 @@
 import {Component, Input, Output} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
+
 import {SelectableInterface} from '../interfaces/selectable.interface';
 
 @Component({

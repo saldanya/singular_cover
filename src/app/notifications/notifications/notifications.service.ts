@@ -7,7 +7,7 @@ export class NotificationsService {
 
   vcr: ViewContainerRef;
 
-  constructor(private appRef: ApplicationRef, private resolver: ComponentFactoryResolver) { 
+  constructor(private appRef: ApplicationRef, private resolver: ComponentFactoryResolver) {
     console.log(appRef.components[0]);
   }
 
